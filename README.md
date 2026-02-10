@@ -55,11 +55,14 @@ dataset/BriM/
 ```
 ---
 
-## 📥 Backbone Model: MambaVision-B-1K
+## 📥 Image-Text Contrastive Embedding: CLIP (ViT-B/16)
 
-The proposed **MKGM** model adopts **[MambaVision-B-1K](https://huggingface.co/nvidia/MambaVision-B-1K)** as the image feature extraction backbone.  
+The **BM3LP** model leverages **[CLIP ViT-B/16](https://huggingface.co/openai/clip-vit-base-patch16)** to learn image-text contrastive embeddings, enhancing cross-modal alignment for multimodal defect understanding.
 This pretrained model can be easily downloaded and used via [Hugging Face Transformers](https://huggingface.co) or the `timm` library.
 
 ```python
-from timm import create_model
-model = create_model('mambavision_b_1k', pretrained=True)
+from transformers import CLIPProcessor, CLIPModel
+
+# Load pretrained CLIP ViT-B/16
+processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch16")
+model = CLIPModel.from_pretrained("openai/clip-vit-base-patch16")
