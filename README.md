@@ -32,43 +32,28 @@ This project was developed and tested under the following environment:
 
 ## 📁 Dataset Setup
 
-The dataset contains **1,463 bridge inspection images**, each annotated with **hierarchical labels** across three levels:  
-**structural region → component → defect type**
+The **Bridge Maintenance Multimodal Knowledge Graph (BM3KG)** currently contains 852 entities, with three modalities: graph structure, images, and text. The dataset includes 9 main relations and 2,150 knowledge triples, and is continually expanding.
 
-### 🔽 Download
-
-The full bridge inspection dataset (`BDSJR_dataset.tar.gz`) is available via cloud drive:
-
-🔗 [Cloud Drive Download](https://pan.baidu.com/s/1KUGbvK1DHudWw7j4nlBt1Q) *(access code required)*
-
-> 📌 **Note**: The extraction code is not publicly available. Please contact the authors for academic or collaborative use.  
-> 📧 Contact Email: `yxxia@mails.cqjtu.edu.cn`
+> 📌 **Note**: The dataset is not publicly available for direct download. For access, please contact the authors for academic and collaborative use. 
 
 ---
 
-### 🗂 Directory Structure
-
-After unzipping the dataset to the project root directory, it should have the following structure:
+The dataset has the following structure:
 
 ```bash
-dataset/
-├── Annotations/                 # raw label files for each image (multi-level: structural region/component/defect)
-├── files/                       # preprocessed label CSVs
-│   ├── classification_trainval.csv   # training/validation labels in multi-label format
-│   └── classification_test.csv       # test labels in multi-label format
-├── JPEGImages/                  # raw bridge inspection images
-├── pool_pkls/                   # region-wise image features (Faster R-CNN)
-├── co_occurrence_matrix.pkl     # label co-occurrence matrix (label correlation prior)
-├── ent_emb.pkl                  # label embeddings from knowledge graph (used as semantic prior)
-└── T-G-adj.pkl                  # adjacency matrix of textual graph (structural region–component–defect hierarchy)
+dataset/BriM/
+├── entity_image/                # Image files corresponding to each entity
+├── data.txt                     # All knowledge triples in the dataset
+├── entity2id.txt                # Mapping of entity names to IDs
+├── entity_description.txt       # Text descriptions for each entity
+├── relation2id.txt              # Mapping of relationships to IDs
+├── img_features.pkl             # Image embeddings for entities (learned using CLIP and ST-GAT)
+├── text_features.pkl            # Text embeddings for entities (learned using CLIP and ST-GAT)
+├── train.txt                    # Training set (split from data.txt)
+├── val.txt                      # Validation set (split from data.txt)
+└── test.txt                     # Test set (split from data.txt)
 ```
 ---
-
-### ✅ Usage Notes
-
-- All annotations and features are **preprocessed** and ready to use.
-- No additional conversion or annotation processing is required.
-
 
 ## 📥 Backbone Model: MambaVision-B-1K
 
