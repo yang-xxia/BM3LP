@@ -11,24 +11,22 @@ The BM3LP (Bridge Maintenance Multimodal Link Prediction) model aims to tackle t
 - 🔁 **cross-modal contrastive interaction**: Applies a progressive cross-modal contrast interaction strategy to improve feature retention, modality similarity, and cross-modal semantic association, addressing issues like feature forgetting and modality imbalance.  
 - 🧠 **MMKG & Link Prediction**: Constructs a Bridge Maintenance MMKG and BriM dataset, demonstrating model advantages through multiple comparative experiments.
 
----
-
-## 🖼️ Graphical Abstract
-
-<p align="center">
-  <img src="assets/graphical_abstract.png" width="700">
-</p>
-
----
-
 ## 🔧 Environment Configuration
 
 This project was developed and tested under the following environment:
 
 - python == 3.8.2  
-- torch == 2.2.0  
-- torchvision == 0.17.0  
-- numpy == 1.24.0  
+- torch==2.3.0
+- torch-geometric==2.6.1
+- transformers==4.46.3
+- numpy==1.24.4
+- scipy==1.10.1
+- scikit-learn==1.3.2
+- pandas==2.0.3
+- matplotlib==3.7.5
+- seaborn==0.13.2
+- tqdm==4.67.1
+- requests==2.32.3  
 
 💡 Optional: You can install dependencies with pip install -r requirements.txt or manually as shown below.
 
