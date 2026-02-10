@@ -1,0 +1,11 @@
+<Structural_region> 0
+<Component> 1
+<Maintenance_rules> 2
+<Structure_function> 3
+<Common_defects> 4
+<Causes_of_defects> 5
+<Hazards_of_defects> 6
+<Prevention_measures_of_defects> 7
+<Maintenance_suggestions_of_defects> 8
+<Repair_materials_for_defects> 9
+<Current_situation> 10
