@@ -3,9 +3,9 @@ from sklearn.model_selection import train_test_split
 
 # Load the dataset
 file_path = '/home/nlp/NLP-Group/YXX/BM3LP/dataset/BriM751/data.txt'
-data = pd.read_csv(file_path, delimiter='\t')  # 根据实际情况调整分隔符
+data = pd.read_csv(file_path, delimiter='\t')  # 
 
-# First split: 70% train, 30% temp
+# 
 train_data, temp_data = train_test_split(
     data, 
     test_size=0.3, 
