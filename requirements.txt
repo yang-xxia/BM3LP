@@ -72,7 +72,7 @@ six==1.17.0
 sympy==1.13.3
 threadpoolctl==3.5.0
 tokenizers==0.20.3
-torch @ file:///mnt/sda1/nlp/NLP-Group/YXX/IMF-Pytorch-main/torch-2.3.0%2Bcu118-cp38-cp38-linux_x86_64.whl
+torch==2.3.0
 torch-geometric==2.6.1
 torch-hd==5.7.1
 torch_cluster==1.6.3+pt23cu118
