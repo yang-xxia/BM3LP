@@ -302,13 +302,13 @@ class ConvKBCorpus(Corpus):
         self.batch_indices[:last_index] = pos_triples
         self.batch_values[:last_index] = 1
 
-        # 负样本
+        # 
         idx = last_index
         for i in range(last_index):
             h, r, t = pos_triples[i]
 
             for n in range(self.neg_num):
-                if n % 2 == 0:  # 换 head
+                if n % 2 == 0:  #
                     h_neg = np.random.randint(0, len(self.entity2id))
                     while (h_neg, r, t) in self.all_triples:
                         h_neg = np.random.randint(0, len(self.entity2id))
@@ -319,12 +319,12 @@ class ConvKBCorpus(Corpus):
                         t_neg = np.random.randint(0, len(self.entity2id))
                     self.batch_indices[idx] = [h, r, t_neg]
 
-                # 负样本 value
+                # 
                 self.batch_values[idx] = -1
                 idx += 1
 
-        # ===== 核心修复：r 超范围检查 =====
-        # 对应 DFS_RGAT 已经翻倍的关系数量
+        # ==========
+        # 
         self.batch_indices[:, 1] = self.batch_indices[:, 1] % self.num_relations
 
         return self.batch_indices, self.batch_values
