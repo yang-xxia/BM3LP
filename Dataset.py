@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 # Load the dataset
-file_path = '/home/nlp/NLP-Group/YXX/BM3LP/dataset/BriM751/data.txt'
+file_path = './BM3LP/dataset/BriM/data.txt'
 data = pd.read_csv(file_path, delimiter='\t')  # 
 
 # 
@@ -28,6 +28,6 @@ print(f'Validation Set Size: {len(val_data)}')
 print(f'Testing Set Size: {len(test_data)}')
 
 # Save to files
-train_data.to_csv('/home/nlp/NLP-Group/YXX/BM3LP/dataset/BriM751/train.txt', index=False, sep='\t')
-val_data.to_csv('/home/nlp/NLP-Group/YXX/BM3LP/dataset/BriM751/val.txt', index=False, sep='\t')
-test_data.to_csv('/home/nlp/NLP-Group/YXX/BM3LP/dataset/BriM751/test.txt', index=False, sep='\t')
+train_data.to_csv('./BM3LP/dataset/BriM/train.txt', index=False, sep='\t')
+val_data.to_csv('./BM3LP/dataset/BriM/val.txt', index=False, sep='\t')
+test_data.to_csv('./BM3LP/dataset/BriM/test.txt', index=False, sep='\t')
