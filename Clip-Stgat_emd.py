@@ -70,7 +70,7 @@ for idx in range(852):
         if is_multi_image:
            
             image_files = [f for f in os.listdir(multi_image_dir) if f.endswith('.jpg')]
-            image_files.sort(key=lambda x: int(x.split('_')[-1].split('.')[0]))  # 按序号排序
+            image_files.sort(key=lambda x: int(x.split('_')[-1].split('.')[0]))  
             
             
             for image_file in image_files:
@@ -82,11 +82,11 @@ for idx in range(852):
                     inputs = processor(images=image, return_tensors="pt").to(device)
                     with torch.no_grad():
                         image_features = clip_model.get_image_features(**inputs)
-                        image_features = image_features / image_features.norm(dim=-1, keepdim=True)  # 归一化
-                        image_embs.append(image_features.squeeze(0))  # 确保形状为 [512]
+                        image_features = image_features / image_features.norm(dim=-1, keepdim=True) 
+                        image_embs.append(image_features.squeeze(0))  
                 else:
                  
-                    image_embs.append(torch.normal(0, 0.01, (512,)).to(device))  # 512维
+                    image_embs.append(torch.normal(0, 0.01, (512,)).to(device)) 
         
         elif os.path.exists(single_image_path):
             
@@ -97,11 +97,11 @@ for idx in range(852):
                 inputs = processor(images=image, return_tensors="pt").to(device)
                 with torch.no_grad():
                     image_features = clip_model.get_image_features(**inputs)
-                    image_features = image_features / image_features.norm(dim=-1, keepdim=True)  # 归一化
-                    image_embs.append(image_features.squeeze(0))  # 确保形状为 [512]
+                    image_features = image_features / image_features.norm(dim=-1, keepdim=True) 
+                    image_embs.append(image_features.squeeze(0))  
             else:
               
-                image_embs.append(torch.normal(0, 0.01, (512,)).to(device))  # 512维
+                image_embs.append(torch.normal(0, 0.01, (512,)).to(device))  
         
         else:
            
@@ -110,13 +110,13 @@ for idx in range(852):
        
         with torch.no_grad():
             text_inputs = processor(text=description, return_tensors="pt", padding=True, truncation=True, max_length=77).to(device)
-            text_embedding = clip_model.get_text_features(**text_inputs).squeeze(0)  # 确保形状为 [512]
+            text_embedding = clip_model.get_text_features(**text_inputs).squeeze(0) 
         
         if len(image_embs) > 1:
             print(f"Processing entity {idx} with {len(image_embs)} images.")
            
             num_nodes = len(image_embs)
-            adjacency_matrix = torch.ones((num_nodes, num_nodes))  # 全连接图
+            adjacency_matrix = torch.ones((num_nodes, num_nodes)) 
             
             nodes_features = torch.stack(image_embs, dim=0)  # shape: (num_nodes, 512)
             print(f"Nodes features shape: {nodes_features.shape}")
