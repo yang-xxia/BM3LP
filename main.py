@@ -67,7 +67,6 @@ for k, v in list(vars(args).items()):
 entity2id, relation2id, img_features, text_features, train_data, val_data, test_data = load_data(args.dataset)
 print("Training data {:04d}".format(len(train_data[0])))
 
-# 保持原逻辑
 if args.model in ['ConvE', 'TuckER', 'Mutan', 'BM3LP']:
     corpus = ConvECorpus(args, train_data, val_data, test_data, entity2id, relation2id)
 else:
