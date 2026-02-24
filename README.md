@@ -28,7 +28,7 @@ This project was developed and tested under the following environment:
 - tqdm==4.67.1
 - requests==2.32.3  
 
-💡 Optional: You can install dependencies with pip install -r requirements.txt or manually as shown below.
+💡 You can install dependencies with pip install -r requirements.txt
 
 ## 📁 Dataset Setup
 
