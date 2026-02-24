@@ -100,7 +100,7 @@ def get_adj(path, split):
 
 # Load data triples and adjacency matrix
 def load_data(datasets):
-    path = '/home/nlp/NLP-Group/YXX/BM3LP/dataset/'+datasets+'/'
+    path = './BM3LP/dataset/'+datasets+'/'
     train_triples, train_adj, train_unique_entities = get_adj(path, 'train')
     val_triples, val_adj, val_unique_entities = get_adj(path, 'val')
     test_triples, test_adj, test_unique_entities = get_adj(path, 'test')
